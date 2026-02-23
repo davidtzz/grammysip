@@ -56,7 +56,7 @@ export default function GrammyPage() {
           alt="Grammy Logo" 
           className={styles.navLogoImg} 
           />
-          <span className={styles.navDiamond}>♦</span>
+          <span className={styles.navDiamond}>♦&#xFE0E;</span>
           <span className={styles.navText}>GRAMMY AWARDS</span>
         </div>
         <span className={styles.navYears}>2026</span>
@@ -81,6 +81,7 @@ export default function GrammyPage() {
           ))}
         </div>
         </div>
+        <div className={styles.heroBg} /> 
       </header>
 
       {/* COUNTDOWN */}
@@ -139,7 +140,7 @@ export default function GrammyPage() {
       {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.footerGoldLine} />
-        <p className={styles.footerMain}>♦ &nbsp; Grammy Awards · Recording Academy &nbsp; ♦</p>
+        <p className={styles.footerMain}>♦ &#xFE0E; Grammy Awards · Recording Academy &#xFE0E; ♦</p>
         <p className={styles.footerSub}>Todos los derechos reservados</p>
       </footer>
     </div>

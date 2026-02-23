@@ -99,31 +99,45 @@ body,
 /* ── HERO ── */
 .hero {
   display: flex;
-  align-items: center;
   padding: 100px 64px 60px;
   width: 100%;
   min-height: 600px;
   position: relative;
   z-index: 1;
   text-align: left;
-  background-image: url('/src/assets/grammyheader.jpg');
-  background-size: cover;
-  background-position: center;
+/*  background-image: url('/src/assets/grammyheader.jpg');*/
+  background-size: contain;
+  background-position: right center;
   background-repeat: no-repeat;
 }
 
-.hero::after {
+/*.hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #0d1624 35%, transparent 70%);
+  background: linear-gradient(to right, #0d1624 0%, #0d1624 35%, transparent 50%);
   z-index: 0;
-}
+}*/
 
 .heroContent {
+  flex: 0 0 45%;
   position: relative;
+  z-index: 2;
+  text-shadow: 0 0 40px rgba(13, 22, 36, 0.9);
+}
+.heroBg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;       /* ocupa solo la mitad derecha */
+  height: 100%;
+  background-image: url('/src/assets/grammyheader.jpg');
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(to right, transparent 49%, black 70%);
+  -webkit-mask-image: linear-gradient(to right, transparent 49%, black 70%);
   z-index: 1;
-  max-width: 500px;
 }
 .eyebrow {
   font-size: 11px;
@@ -143,6 +157,7 @@ body,
   letter-spacing: -2px;
   color: #fff;
   animation: fadeUp 0.8s 0.1s ease both;
+  margin-left: -40px;
 }
 
 .heroTitleGold {
@@ -442,5 +457,108 @@ body,
   }
   .countBox {
     min-width: 68px;
+  }
+}
+@media (max-width: 768px) {
+
+  /* hero */
+  .hero {
+    flex-direction: column;
+    padding: 60px 24px 40px;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .heroContent {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .heroBg {
+    display: block;        /* ← vuelve a mostrarla */
+    width: 100%;
+    opacity: 0.3;          /* ← más transparente para que no tape el texto */
+    background-image: url('/src/assets/responsive_phone.jpg');  /* ← imagen más vertical para móviles */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  }
+
+  .badges {
+    justify-content: center;
+  }
+
+  .heroTitle {
+    margin-left: 0;
+    font-size: clamp(52px, 15vw, 80px);
+  }
+
+  .heroSub {
+    font-size: 13px;
+  }
+
+  /* nav */
+  .nav {
+    padding: 14px 20px;
+  }
+
+  .navText {
+    font-size: 15px;
+    letter-spacing: 4px;
+  }
+
+  /* countdown */
+  .countCard {
+    padding: 32px 16px;
+  }
+
+  .countTitle {
+    font-size: 22px;
+  }
+
+  .countRow {
+    gap: 0;
+  }
+
+  .countBox {
+    min-width: 60px;
+  }
+
+  .countNum {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .colon {
+    font-size: 24px;
+    margin: 0 4px;
+    margin-bottom: 16px;
+  }
+
+  /* eventos */
+  .secTitle {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  /* secciones */
+  .section {
+    padding: 40px 16px;
+  }
+
+  /* footer */
+  .footer {
+    padding: 32px 16px 40px;
+  }
+
+  .footerMain {
+    font-size: 11px;
+    letter-spacing: 2px;
   }
 }

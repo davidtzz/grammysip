@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;800&family=Jost:wght@300;400;500&display=swap');
+
+/* ── RESET GLOBAL ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: #0d1624;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── ROOT ── */
+.root {
+  width: 100%;
+  min-height: 100vh;
+  background: #0d1624;
+  font-family: 'Jost', sans-serif;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── BG GLOW ── */
+.bgGlow {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(47,70,115,0.6) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 25% at 85% 85%, rgba(212,175,55,0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(13, 22, 36, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  height: 64px;
+  overflow: hidden;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navLogoImg {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  display: block;        /* ← esto */
+  flex-shrink: 0;   
+   filter: brightness(0) saturate(100%) invert(78%) sepia(47%) saturate(500%) hue-rotate(5deg) brightness(95%);    /* ← evita que se deforme */
+}
+
+.navDiamond {
+  color: #D4AF37;
+  font-size: 16px;
+}
+
+.navText {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  color: #fff;
+}
+
+.navYears {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: rgba(212, 175, 55, 0.45);
+  text-transform: uppercase;
+}
+
+/* ── HERO ── */
+.hero {
+  display: flex;
+  align-items: center;
+  padding: 100px 64px 60px;
+  width: 100%;
+  min-height: 600px;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  background-image: url('/src/assets/grammyheader.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #0d1624 35%, transparent 70%);
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: #D4AF37;
+  opacity: 0.75;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  animation: fadeUp 0.8s ease both;
+}
+
+.heroTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(72px, 12vw, 140px);
+  font-weight: 800;
+  line-height: 0.93;
+  letter-spacing: -2px;
+  color: #fff;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.heroTitleGold {
+  background: linear-gradient(135deg, #D4AF37 0%, #F0D080 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSub {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.5px;
+  margin-bottom: 36px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.badge {
+  padding: 7px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(212, 175, 55, 0.65);
+  background: rgba(47, 70, 115, 0.18);
+  text-transform: uppercase;
+}
+
+/* ── GOLD DIVIDER ── */
+.goldLine {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 32px auto;
+}
+
+/* ── SECTIONS ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+
+.sectionNoPaddingTop {
+  padding-top: 0;
+}
+
+/* ── COUNTDOWN ── */
+.countCard {
+  background: linear-gradient(135deg, rgba(47,70,115,0.38) 0%, rgba(18,30,54,0.65) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 20px;
+  padding: 52px 40px;
+  text-align: center;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 0 80px rgba(47,70,115,0.2), inset 0 1px 0 rgba(212,175,55,0.08);
+}
+
+.countTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.countSub {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: rgba(212, 175, 55, 0.5);
+  text-transform: uppercase;
+}
+
+.countGoldLine {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 18px auto 36px;
+}
+
+.countRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.countUnit {
+  display: flex;
+  align-items: center;
+}
+
+.colon {
+  font-size: 40px;
+  color: rgba(212, 175, 55, 0.25);
+  margin: 0 10px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.countBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 88px;
+}
+
+.countNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 82px);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(180deg, #F0D080 0%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-variant-numeric: tabular-nums;
+}
+
+.countLabel {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  margin-top: 6px;
+}
+
+/* ── EVENTS SECTION HEAD ── */
+.secHead {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.secEye {
+  font-size: 10px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #D4AF37;
+  opacity: 0.65;
+}
+
+.secTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 700;
+  color: #fff;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.secGoldLine {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 16px auto 0;
+}
+
+/* ── GRID ── */
+.grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* ── EVENT CARD ── */
+.card {
+  width: 260px;
+  background: rgba(47, 70, 115, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(47, 70, 115, 0.35);
+}
+
+.cardTopBar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  opacity: 0.5;
+}
+
+.cardType {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #D4AF37;
+  opacity: 0.65;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.cardDate {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.cardDateMain {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.cardDateYear {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.cardTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 18px;
+  line-height: 1.35;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1.7;
+}
+
+/* ── FOOTER ── */
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 24px 52px;
+  border-top: 1px solid rgba(212, 175, 55, 0.07);
+}
+
+.footerGoldLine {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 0 auto 24px;
+}
+
+.footerMain {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: rgba(212, 175, 55, 0.35);
+  margin-bottom: 8px;
+}
+
+.footerSub {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.12);
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .nav {
+    padding: 16px 20px;
+  }
+  .section {
+    padding: 40px 16px;
+  }
+  .countCard {
+    padding: 36px 20px;
+  }
+  .countBox {
+    min-width: 68px;
+  }
+}

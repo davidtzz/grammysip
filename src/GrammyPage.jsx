@@ -140,7 +140,7 @@ export default function GrammyPage() {
       {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.footerGoldLine} />
-        <p className={styles.footerMain}>♦ &#xFE0E; Grammy Awards · Recording Academy &#xFE0E; ♦</p>
+        <p className={styles.footerMain}>✦ &nbsp; Grammy Awards · Recording Academy &nbsp; ✦</p>
         <p className={styles.footerSub}>Todos los derechos reservados</p>
       </footer>
     </div>

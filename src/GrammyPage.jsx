@@ -19,7 +19,7 @@ const events = [
   },
 ];
 
-const TARGET_DATE = new Date("2026-03-20T00:00:00");
+const TARGET_DATE = new Date("2026-03-20T16:00:00");
 
 function useCountdown(target) {
   const [timeLeft, setTimeLeft] = useState({});

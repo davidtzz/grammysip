@@ -122,6 +122,7 @@ const categories = [
     ],
     
   },
+  */
     {
     id: 11,
     name: "Best Enginereed Album",
@@ -134,7 +135,7 @@ const categories = [
     ],
     
   },
-*/
+
     {
     id: 12,
     name: "Best Music Video",

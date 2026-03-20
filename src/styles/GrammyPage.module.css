@@ -299,6 +299,30 @@ body,
   margin-top: 6px;
 }
 
+/* ── NOMINATIONS BUTTON ── */
+.nomButton{
+  display: inline-block;
+  margin-top: 40px;
+  padding: 14px 36px;
+  border: 1px solid #D4AF37;
+  border-radius: 999px;
+  color: #D4AF37;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease, transform 1s ease;
+}
+
+.nomButton:hover {
+  background: #D4AF37;
+  color: #0d1624;
+  transform: scale(1.5);
+}
+
 /* ── EVENTS SECTION HEAD ── */
 .secHead {
   text-align: center;
@@ -461,6 +485,13 @@ body,
 }
 @media (max-width: 768px) {
 
+  .nomButton:active {
+    background: #D4AF37 !important;
+    color: #0d1624 !important;
+  }
+  .nomButton:hover {
+    transform: scale(1.16);
+  }
   /* hero */
   .hero {
     flex-direction: column;

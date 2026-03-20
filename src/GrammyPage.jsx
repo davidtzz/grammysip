@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import styles from "./GrammyPage.module.css";
-import grammyheader from "./assets/grammyheader.jpg";
+import styles from "./styles/GrammyPage.module.css";
+import { useNavigate } from "react-router-dom";
 
 const events = [
   {
     id: 1,
     date: "MAR 20, 2026",
     title: "Anuncio de Nominados",
-    time: "TBA",
+    time: "14:00 Pacific Time / 17:00 Eastern Time",
     type: "Anuncio",
   },
   {
@@ -20,7 +20,6 @@ const events = [
 ];
 
 const TARGET_DATE = new Date("2026-03-20T16:00:00");
-
 function useCountdown(target) {
   const [timeLeft, setTimeLeft] = useState({});
   useEffect(() => {
@@ -43,6 +42,24 @@ function useCountdown(target) {
 
 export default function GrammyPage() {
   const { d, h, m, s } = useCountdown(TARGET_DATE);
+  const [btnPressed, setBtnPressed] = useState(false);
+  const navigate = useNavigate();  
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.matchMedia('(hover: none)').matches);
+  }, []);
+  const handleNomClick = (e) => {
+  const isTouch = window.matchMedia('(hover: none)').matches;
+  if (isTouch) {
+    e.preventDefault();
+    setBtnPressed(true);
+    setTimeout(() => {
+      navigate('/nominaciones');
+    }, 600);
+  }
+  // si no es táctil, el href navega normal instantáneo
+};
+
 
   return (
     <div className={styles.root}>
@@ -108,6 +125,15 @@ export default function GrammyPage() {
               </div>
             ))}
           </div>
+          <a href="/nominaciones"
+  className={`${styles.nomButton} ${btnPressed ? styles.nomButtonActive : ''}`}
+  style={{ cursor: 'pointer' }}
+  onTouchStart={() => isMobile && setBtnPressed(true)}
+  onTouchEnd={handleNomClick}
+  onClick={handleNomClick}
+>
+  Consulta las Nominaciones ✦
+</a>
         </div>
       </section>
 

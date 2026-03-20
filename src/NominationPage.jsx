@@ -1,7 +1,6 @@
 import styles from "./styles/NominationPage.module.css";
 
 const categories = [
-  /*
   {
     
     id: 1,
@@ -122,7 +121,7 @@ const categories = [
     ],
     
   },
-  */
+  
     {
     id: 11,
     name: "Best Enginereed Album",
